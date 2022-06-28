@@ -7,14 +7,16 @@ import (
 	"github.com/jadson-medeiros/banks-adapter/domain"
 )
 
-type Bank1Adapter struct{}
+type Bank1Adapter struct {
+	Bank bank1.Bank1Client
+}
 
 func (b *Bank1Adapter) GetBalance(accountID int64) float64 {
-	return bank1.GetAccountBalance(accountID)
+	return b.Bank.GetAccountBalance(accountID)
 }
 
 func (b *Bank1Adapter) GetCurrency(accountID int64) string {
-	return bank1.GetAccountCurrency(accountID)
+	return b.Bank.GetAccountCurrency(accountID)
 }
 
 func (b *Bank1Adapter) GetTransactions(account int64, fromDate time.Time, toDate time.Time) []domain.Transaction {

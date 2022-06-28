@@ -7,15 +7,17 @@ import (
 	"github.com/jadson-medeiros/banks-adapter/domain"
 )
 
-type Bank2Adapter struct{}
+type Bank2Adapter struct {
+	Bank bank2.Bank2Client
+}
 
 func (b *Bank2Adapter) GetBalance(accountID int64) float64 {
-	balance := bank2.GetBalance(accountID)
+	balance := b.Bank.GetBalance(accountID)
 	return balance.Balance
 }
 
 func (b *Bank2Adapter) GetCurrency(accountID int64) string {
-	balance := bank2.GetBalance(accountID)
+	balance := b.Bank.GetBalance(accountID)
 	return balance.Currency
 }
 
