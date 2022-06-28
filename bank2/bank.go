@@ -1,12 +1,11 @@
 package bank2
 
-type Balance struct {
-	Balance  float64
-	Currency string
-}
+import "github.com/jadson-medeiros/banks-adapter/domain"
 
-func GetBalance(accountID int64) Balance {
-	return Balance{
+type Bank2Client struct{}
+
+func (b *Bank2Client) GetBalance(accountID int64) domain.Balance {
+	return domain.Balance{
 		Balance:  512.5,
 		Currency: "USD",
 	}
