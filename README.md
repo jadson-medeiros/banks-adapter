@@ -15,3 +15,8 @@ Open the project with Visual Studio Code and:
 ```
 go run main.go
 ```
+
+# Run tests
+```
+go test
+```
