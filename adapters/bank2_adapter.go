@@ -8,16 +8,16 @@ import (
 )
 
 type Bank2Adapter struct {
-	Bank bank2.Bank2Client
+	bank bank2.Bank2Client
 }
 
 func (b *Bank2Adapter) GetBalance(accountID int64) float64 {
-	balance := b.Bank.GetBalance(accountID)
+	balance := b.bank.GetBalance(accountID)
 	return balance.Balance
 }
 
 func (b *Bank2Adapter) GetCurrency(accountID int64) string {
-	balance := b.Bank.GetBalance(accountID)
+	balance := b.bank.GetBalance(accountID)
 	return balance.Currency
 }
 

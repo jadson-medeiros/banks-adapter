@@ -8,15 +8,15 @@ import (
 )
 
 type Bank1Adapter struct {
-	Bank bank1.Bank1Client
+	bank bank1.Bank1Client
 }
 
 func (b *Bank1Adapter) GetBalance(accountID int64) float64 {
-	return b.Bank.GetAccountBalance(accountID)
+	return b.bank.GetAccountBalance(accountID)
 }
 
 func (b *Bank1Adapter) GetCurrency(accountID int64) string {
-	return b.Bank.GetAccountCurrency(accountID)
+	return b.bank.GetAccountCurrency(accountID)
 }
 
 func (b *Bank1Adapter) GetTransactions(account int64, fromDate time.Time, toDate time.Time) []domain.Transaction {
