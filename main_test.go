@@ -9,16 +9,12 @@ import (
 	"github.com/jadson-medeiros/banks-adapter/domain"
 )
 
-func CreateBank1Mock() *Bank {
-	return &Bank{
-		Method: &adapters.Bank1Adapter{},
-	}
+func CreateBank1Mock() *adapters.Bank1Adapter {
+	return &adapters.Bank1Adapter{}
 }
 
-func CreateBank2Mock() *Bank {
-	return &Bank{
-		Method: &adapters.Bank2Adapter{},
-	}
+func CreateBank2Mock() *adapters.Bank2Adapter {
+	return &adapters.Bank2Adapter{}
 }
 
 func GetTransactionsBank1Mock() []domain.Transaction {
@@ -40,7 +36,7 @@ func GetTransactionsBank2Mock() []domain.Transaction {
 func TestGetTransactionsBank1(t *testing.T) {
 	bank := CreateBank1Mock()
 
-	result := bank.Method.GetTransactions(100, time.Now(), time.Now())
+	result := bank.GetTransactions(100, time.Now(), time.Now())
 
 	expected := GetTransactionsBank1Mock()
 
@@ -57,7 +53,7 @@ func TestGetTransactionsBank1(t *testing.T) {
 func TestGetTransactionsBank2(t *testing.T) {
 	bank := CreateBank2Mock()
 
-	result := bank.Method.GetTransactions(100, time.Now(), time.Now())
+	result := bank.GetTransactions(100, time.Now(), time.Now())
 
 	expected := GetTransactionsBank2Mock()
 
